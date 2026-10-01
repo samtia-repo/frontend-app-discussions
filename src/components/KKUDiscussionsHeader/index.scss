@@ -1,0 +1,249 @@
+.kku-discussions-header {
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid #e4e7ec;
+  color: #111827;
+  position: relative;
+  z-index: 1000;
+}
+
+.kku-discussions-header,
+.kku-discussions-header * {
+  box-sizing: border-box;
+}
+
+.kku-discussions-header a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.kku-discussions-header__inner {
+  width: min(1400px, calc(100% - 96px));
+  min-height: 72px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.kku-discussions-header__brand {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.kku-discussions-header__logo {
+  height: 52px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  transform: scale(1.9);
+  transform-origin: center;
+}
+
+.kku-discussions-header__logo--en {
+  transform: scale(1.9);
+  transform-origin: center;
+}
+
+.kku-discussions-header__course {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  flex: 1 1 auto;
+}
+
+.kku-discussions-header__course-number {
+  color: #344054;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.kku-discussions-header__course-title {
+  color: #111827;
+  font-size: 16px;
+  font-weight: 900;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kku-discussions-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 0 0 auto;
+}
+
+.kku-discussions-header__help {
+  color: #111827;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.kku-discussions-header__help:hover,
+.kku-discussions-header__help:focus {
+  color: #064e3b;
+}
+
+.kku-discussions-user-menu {
+  position: relative;
+  width: 185px;
+  height: 48px;
+  padding: 0 14px;
+  border-radius: 12px;
+  background: #f6f7f8;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+}
+
+.kku-discussions-user-menu__button {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: inherit;
+  text-align: start;
+}
+
+.kku-discussions-user-menu__avatar {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.kku-discussions-user-menu__text {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.kku-discussions-user-menu__name {
+  color: #171717;
+  font-size: 14px;
+  font-weight: 900;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kku-discussions-user-menu__role {
+  margin-top: 2px;
+  color: #737987;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.kku-discussions-user-menu__arrow {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  opacity: 0.75;
+  transition: transform 0.2s ease;
+}
+
+.kku-discussions-user-menu--open .kku-discussions-user-menu__arrow {
+  transform: rotate(180deg);
+}
+
+.kku-discussions-user-menu__dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  inset-inline-end: 0;
+  min-width: 185px;
+  padding: 8px;
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 12px;
+  box-shadow: 0 18px 40px rgba(16, 24, 40, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 200;
+}
+
+.kku-discussions-user-menu--open .kku-discussions-user-menu__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.kku-discussions-user-menu__item {
+  min-height: 42px;
+  padding: 0 14px;
+  border-radius: 8px;
+  color: #111827;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.kku-discussions-user-menu__item:hover,
+.kku-discussions-user-menu__item:focus {
+  color: #111827;
+  background: #f2f4f7;
+}
+
+/*!rtl:begin:ignore*/
+
+.kku-discussions-header[dir="ltr"] .kku-discussions-header__inner {
+  direction: ltr;
+}
+
+.kku-discussions-header[dir="rtl"] .kku-discussions-header__inner {
+  direction: rtl;
+}
+
+/*!rtl:end:ignore*/
+
+@media (max-width: 900px) {
+  .kku-discussions-header__inner {
+    width: calc(100% - 28px);
+    min-height: 68px;
+    gap: 14px;
+  }
+
+  .kku-discussions-header__logo {
+    height: 42px;
+  }
+
+  .kku-discussions-header__course-number {
+    font-size: 12px;
+  }
+
+  .kku-discussions-header__course-title {
+    font-size: 14px;
+  }
+
+  .kku-discussions-header__help {
+    display: none;
+  }
+
+  .kku-discussions-user-menu {
+    width: 48px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .kku-discussions-user-menu__button {
+    justify-content: center;
+  }
+
+  .kku-discussions-user-menu__text,
+  .kku-discussions-user-menu__arrow {
+    display: none;
+  }
+}

@@ -3,7 +3,138 @@
 
 @import "~@edx/frontend-component-footer/dist/footer";
 @import "~@edx/frontend-component-header/dist/index";
+@import "styles/kkuFooter.scss";
 
+$kku-font-stack: "IBM Plex Sans Arabic", "Tahoma", "Arial", sans-serif;
+$kku-arabic-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0898-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+$kku-latin-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+
+@mixin kku-font-face($weight, $file-weight, $subset, $range) {
+  @font-face {
+    font-family: "IBM Plex Sans Arabic";
+    src: url("./assets/fonts/IBMPlexSansArabic-#{$file-weight}-#{$subset}.woff2") format("woff2");
+    font-weight: $weight;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: $range;
+  }
+}
+
+@include kku-font-face(400, 400, arabic, $kku-arabic-range);
+@include kku-font-face(400, 400, latin, $kku-latin-range);
+@include kku-font-face(500, 500, arabic, $kku-arabic-range);
+@include kku-font-face(500, 500, latin, $kku-latin-range);
+@include kku-font-face(600, 600, arabic, $kku-arabic-range);
+@include kku-font-face(600, 600, latin, $kku-latin-range);
+@include kku-font-face(700, 700, arabic, $kku-arabic-range);
+@include kku-font-face(700, 700, latin, $kku-latin-range);
+
+:root {
+  --kkux-green-950: #052e24;
+  --kkux-green-900: #064e3b;
+  --kkux-green-800: #065f46;
+  --kkux-green-700: #047857;
+  --kkux-green-600: #059669;
+  --kkux-green-50: #ecfdf5;
+
+  --pgn-color-primary-base: var(--kkux-green-700);
+  --pgn-color-primary-500: var(--kkux-green-700);
+  --pgn-color-primary-600: var(--kkux-green-800);
+  --pgn-color-primary-700: var(--kkux-green-900);
+  --pgn-color-brand-600: var(--kkux-green-800);
+  --pgn-color-link: var(--kkux-green-800);
+  --pgn-color-link-hover: var(--kkux-green-900);
+  --pgn-typography-font-family-sans-serif: #{$kku-font-stack};
+  --pgn-typography-font-family-base: #{$kku-font-stack};
+  --pgn-typography-headings-font-family: #{$kku-font-stack};
+}
+
+html,
+body,
+#root,
+#main {
+  font-family: $kku-font-stack !important;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#main {
+  flex: 1 1 auto;
+}
+
+.btn-primary,
+.btn-brand {
+  background-color: var(--kkux-green-800) !important;
+  border-color: var(--kkux-green-800) !important;
+  color: #ffffff !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-brand:hover,
+.btn-brand:focus {
+  background-color: var(--kkux-green-900) !important;
+  border-color: var(--kkux-green-900) !important;
+}
+
+a,
+.btn-link {
+  color: var(--kkux-green-800);
+}
+
+a:hover,
+a:focus,
+.btn-link:hover,
+.btn-link:focus {
+  color: var(--kkux-green-900);
+}
+
+.nav-tabs .nav-link.active,
+.pgn__tabs .nav-link.active {
+  color: var(--kkux-green-800) !important;
+  border-color: var(--kkux-green-800) !important;
+}
+
+.pgn__pageBanner-component {
+  background-color: var(--kkux-green-800) !important;
+  color: #ffffff !important;
+}
+
+.pgn__pageBanner-component .confirm-email-now-button,
+.pgn__pageBanner-component .btn,
+.pgn__pageBanner-component button,
+.pgn__pageBanner-component a {
+  color: #ffffff !important;
+}
+
+.pgn__pageBanner-component svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+.form-check-input:checked,
+.pgn__form-checkbox-input:checked,
+.pgn__form-radio-input:checked {
+  background-color: var(--kkux-green-800) !important;
+  border-color: var(--kkux-green-800) !important;
+}
+
+.badge-primary,
+.bg-primary {
+  background-color: var(--kkux-green-800) !important;
+}
+
+.text-primary {
+  color: var(--kkux-green-800) !important;
+}
+
+.border-primary {
+  border-color: var(--kkux-green-800) !important;
+}
 
 body,
 #main
@@ -442,15 +573,26 @@ header {
 }
 
 .nav-button-group {
+  gap: 16px;
+
   .nav-link {
-    &:hover {
-      background-color: var(--pgn-color-light-300) !important;
+    color: #1f2a37 !important;
+    padding: 6px 16px;
+    border-radius: 8px;
+
+    &:hover,
+    &:focus {
+      color: #ffffff !important;
+      background-color: var(--kkux-green-700) !important;
     }
   }
 
   .nav-link.active,
+  .nav-link.active:hover,
+  .nav-link.active:focus,
   .show>.nav-link {
-    background-color: var(--pgn-color-primary-500) !important;
+    color: #ffffff !important;
+    background-color: var(--kkux-green-800) !important;
   }
 }
 
